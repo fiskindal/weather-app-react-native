@@ -28,13 +28,13 @@ const WeatherScreen = (props: Props) => {
   }, []);
 
   return (<>
-    <View>
+    <View style={{backgroundColor:"purple", flex:1}}>
       <View style={{ ...iosBar }}>
       </View>
       <View>
         <View>
-          <Text>{props.location?.name}</Text>
-          <Text>{props.location?.localtime}</Text>
+          <Text style={{color:"white"}}>{props.location?.name}</Text>
+          <Text style={{color:"white"}}>{props.location?.localtime}</Text>
         </View>
         <View>
           <Image source={{ uri: `https:${props.current?.condition.icon}`, height: 100, width: 100 }}></Image>
