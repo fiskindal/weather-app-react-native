@@ -14,7 +14,7 @@ export interface WeatherStateModel {
 
 export const initialState: WeatherStateModel = {
  current: null,
- hourDetail: null,
+ hourDetail: [],
   location: null
 };
 

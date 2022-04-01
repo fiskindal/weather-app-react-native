@@ -20,7 +20,7 @@ const WeatherItem = (props: Props) => {
     }}>
       <Text style={{color:'white'}}> {props.item?.temp_c + ' ' + '°C'}</Text>
       <Text style={{color:'white'}}> {props.item?.time}</Text>
-      <Image style={{backfaceVisibility:"visible"}} source={{uri: `https:${props.item?.condition.icon}`, height:45, width:45}}/>
+      <Image style={{backfaceVisibility:"visible"}} source={{uri: `https:${props.item?.condition.icon}`, height:50, width:50}}/>
     </View>
   );
 
@@ -31,7 +31,7 @@ const WeatherItem = (props: Props) => {
 const mapStateToProps = ({}: {}) => ({});
 
 const mapDispatchToProps = (dispatch: any) => ({
-getWeather: () => dispatch(WeatherService.getWeather()),
+  getWeather: () => dispatch(WeatherService.getWeather()),
 });
 
 type Props = {

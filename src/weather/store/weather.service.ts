@@ -8,7 +8,6 @@ const _getWeather = () => {
   
     return ApiRestClient.get(`http://api.weatherapi.com/v1/forecast.json?key=a17a46be0c8240a2a6764249223003&q=Bursa&days=1&aqi=no&alerts=no`).pipe(
       tap((res:any) => {
-      console.log(res)
        return dispatch(weatherGetAction(res));
       })
     ).toPromise();
