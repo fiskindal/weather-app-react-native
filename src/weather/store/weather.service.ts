@@ -6,7 +6,7 @@ import {weatherGetAction } from "./weather.action";
 const _getWeather = () => {
   return (dispatch: any) => {
   
-    return ApiRestClient.get(`http://api.weatherapi.com/v1/forecast.json?key=a17a46be0c8240a2a6764249223003&q=Bursa&days=1&aqi=no&alerts=no`).pipe(
+    return ApiRestClient.get(`http://api.weatherapi.com/v1/forecast.json?key=ef79adac7e3043538d6125440220104&q=Bursa&days=1&aqi=no&alerts=no`).pipe(
       tap((res:any) => {
        return dispatch(weatherGetAction(res));
       })
