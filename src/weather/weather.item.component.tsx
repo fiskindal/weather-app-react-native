@@ -3,6 +3,7 @@ import { WeatherService } from "./store/weather.service";
 import { Image, Text, View } from "react-native";
 import React, { useEffect } from "react";
 import { HourDetail } from "../api/dtos/Forecast/hourDetail";
+import { DataFormatType, Helper } from "../helper";
 
 const WeatherItem = (props: Props) => {
   useEffect(() => {
@@ -16,11 +17,17 @@ const WeatherItem = (props: Props) => {
       borderRadius:20,
       borderColor: 'purple',
       margin: 2,
-      backgroundColor:"#48007C"
+      backgroundColor:"#48007C",
+      flex:3,
     }}>
+      <View style={{flexDirection:"row"}}>
       <Text style={{color:'white'}}> {props.item?.temp_c + ' ' + '°C'}</Text>
-      <Text style={{color:'white'}}> {props.item?.time}</Text>
+      
+      </View>
+      <View >
       <Image style={{backfaceVisibility:"visible"}} source={{uri: `https:${props.item?.condition.icon}`, height:50, width:50}}/>
+      <Text style={{color:'white'}}> {Helper.dateFormat(props.item?.time,DataFormatType.timeFormat)}</Text>
+      </View>
     </View>
   );
 

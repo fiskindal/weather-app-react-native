@@ -7,7 +7,7 @@ import { Location } from '../../api/dtos/location';
 import { WeatherActionTypes, WEATHER_GET_ACTION } from './weather.action';
 export interface WeatherStateModel {
   current: Current | null;
-  location: Location | null;
+  location: Location;
   hourDetail: HourDetail[] | null;
 
 }
@@ -15,7 +15,7 @@ export interface WeatherStateModel {
 export const initialState: WeatherStateModel = {
  current: null,
  hourDetail: [],
-  location: null
+  location: {} as Location
 };
 
 export function weatherReducer(
