@@ -20,31 +20,31 @@ const WeatherScreen = (props: Props) => {
   };
   let iosBar: ViewStyle = {};
   if (Platform.OS === 'ios') {
-    iosBar = { paddingTop: 40 };
+    iosBar = { paddingTop: 40, height: 40 };
   }
   useEffect(() => {
     props.getWeather();
   });
   return (<>
-    <View style={{ backgroundColor: "purple", flex: 1 }}>
-      <View style={{ ...iosBar }}>
+    <View style={{ backgroundColor: "purple", flex: 1}}>
+      <View style={{ ...iosBar, }}>
+        <Text>{" "}</Text>
       </View>
-      <View style={{ flex: 1, flexDirection: "column"}}>
+      <View style={{ flex: 1, flexDirection: "column", top:60}}>
         <View style={{ flex: 1, flexDirection:"column",  justifyContent:"center"}}>
-          <View style={{flex:1,justifyContent:"center" , flexDirection: 'row'}}>
+          <View style={{flex:1,justifyContent:"center" , flexDirection: 'row', top:20}}>
             <Text style={{ color: "white", fontSize:40 }}>{props.location?.name}</Text>
           </View>
-          <View style={{flex:1, justifyContent:"center" , flexDirection: 'row'}}>
-            <Text style={{ color: "white" }}>{Helper.dateFormat(props.location.localtime,DataFormatType.timeFormat)}</Text>
+          <View style={{flex:1, justifyContent:"center" , flexDirection: 'row', top:20}}>
+            <View>
+            <Text style={{ color: "white" , fontSize:40}}>{Helper.dateFormat(props.location.localtime,DataFormatType.dateFormat)}</Text>
+            </View>
           </View>
-          <View style={{flex:1, justifyContent:"center" , flexDirection: 'row'}}>
+          <View style={{flex:1, justifyContent:"center" , flexDirection: 'row',top:20}}>
             <Image source={{ uri: `https:${props.current?.condition.icon}`, height: 150, width: 150 }}></Image>
           </View>
         </View>
-        <View style={{flex:1, height:20}}>
-
-        </View>
-        <View>
+        <View style={{ padding:20, top:100}}>
           <View style={{
             flexWrap: "nowrap",
             display: "flex",
@@ -58,7 +58,7 @@ const WeatherScreen = (props: Props) => {
             flexWrap: "nowrap",
             display: "flex",
             flexDirection: "row",
-            justifyContent: "space-evenly"
+            justifyContent: "space-evenly",
           }}>
             <Text style={{ color: "white", fontSize: 30 }}>{props.current?.wind_kph}km/s²</Text>
             <Text style={{ color: "white", fontSize: 30 }}>%{props.current?.humidity}</Text>
@@ -66,10 +66,7 @@ const WeatherScreen = (props: Props) => {
           </View>
         </View>
       </View>
-      <View>
-      </View>
       <View style={{flex:1}}>
-
       </View>
       <View>
         <SafeAreaView>
@@ -81,6 +78,9 @@ const WeatherScreen = (props: Props) => {
             showsVerticalScrollIndicator={false}
             renderItem={renderItem} horizontal={true} showsHorizontalScrollIndicator={false} />
         </SafeAreaView>
+      </View>
+      <View style={{ padding:100 , height: 100,  top: 100, width:20}}>
+          <Text>{"  "}</Text>
       </View>
     </View>
   </>)
