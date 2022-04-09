@@ -62,7 +62,7 @@ const WeatherScreen = (props: Props) => {
           }}>
             <Text style={{ color: "white", fontSize: 30 }}>{props.current?.wind_kph}km/s²</Text>
             <Text style={{ color: "white", fontSize: 30 }}>%{props.current?.humidity}</Text>
-            <Text style={{ fontSize: 30, color: "white" }}>{props.current?.temp_c}°C</Text>
+            <Text style={{ fontSize: 30, color: "white" }}>{props.current?.feelslike_c}°C</Text>
           </View>
         </View>
       </View>
@@ -74,7 +74,7 @@ const WeatherScreen = (props: Props) => {
             if (value.time >= props.location.localtime) {
               return value;
             }
-          } )} initialNumToRender={7}
+          } )} 
             showsVerticalScrollIndicator={false}
             renderItem={renderItem} horizontal={true} showsHorizontalScrollIndicator={false} />
         </SafeAreaView>

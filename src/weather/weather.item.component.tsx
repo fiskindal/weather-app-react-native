@@ -21,8 +21,7 @@ const WeatherItem = (props: Props) => {
       flex:3,
     }}>
       <View style={{flexDirection:"row"}}>
-      <Text style={{color:'white'}}> {props.item?.temp_c + ' ' + '°C'}</Text>
-      
+      <Text style={{color:'white'}}> {props.item?.feelslike_c + ' ' + '°C'}</Text>
       </View>
       <View >
       <Image style={{backfaceVisibility:"visible"}} source={{uri: `https:${props.item?.condition.icon}`, height:50, width:50}}/>
